@@ -22,9 +22,11 @@ LIMIT 8,5;
 
 /*挑战题*/
 # 1
-SELECT cust_id FROM Customers;
+SELECT cust_id 
+FROM Customers;
 # 2
-SELECT DISTINCT prod_id FROM orderItems;
+SELECT DISTINCT prod_id 
+FROM orderItems;
 # 3
 # SELECT *
 SELECT cust_id
