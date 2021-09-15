@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: Tjg
  * @Date: 2021-09-13 19:46:41
- * @LastEditTime: 2021-09-14 18:54:44
+ * @LastEditTime: 2021-09-15 17:20:10
  * @LastEditors: Please set LastEditors
 -->
 ·SELECT子句顺序：
@@ -10,7 +10,10 @@
     DISTINCT
     AS
     FROM
+    INNER JOIN/LEFT OUTER JOIN/RIGHT OUTER JOIN
+    ON
     WHERE
+    LIKE
     GROUP BY
     HAVING
     ORDER BY
@@ -25,6 +28,8 @@
         获取当前日期：CURDATE()
         查找符合条件的日期：EXTRACT()
         提取年份：YEAR()
+    联结：
+        不支持FULL OUTER JOIN
 
 ·如何测试：
     SELECT语句去掉FROM后就是简单地访问和处理表达式，可以
