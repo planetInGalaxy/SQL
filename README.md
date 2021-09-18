@@ -3,7 +3,7 @@
  * @Description: 
  * @Author: Tjg
  * @Date: 2021-09-14 22:49:42
- * @LastEditTime: 2021-09-16 21:18:39
+ * @LastEditTime: 2021-09-17 15:24:56
  * @LastEditors: Please set LastEditors
     -->
 
@@ -15,4 +15,5 @@
 
 - SQL必知必会书中实例源码与注释
 - SQL必知必会书中课后练习题（挑战题）源码
-- 常见MySQL命令
+- MySQL必知必会中对SQL必知必会的补充
+- 实用MySQL命令

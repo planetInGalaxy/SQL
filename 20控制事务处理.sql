@@ -29,7 +29,7 @@ SAVE TRANSACTION delete1;
 # 回退到保留点(SQLServer)
 ROLLBACK TRANSACTION delete;
 # MySQL
-ROLLBACK T0 delete1;
+ROLLBACK TO delete1;
 # 完整的SQLServer例子
 BEGIN TRANSACTION
 INSERT INTO Customers(cust_id,cust_name)
