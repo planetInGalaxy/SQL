@@ -62,9 +62,9 @@ GROUP BY order_num
 HAVING total_price >= 1000
 ORDER BY order_num;
 # 5
-# GROUP BY 项不正确。 GROUP BY 必须是实际的列，
+# GROUP BY 不正确，GROUP BY 必须是实际的列，
 # 而不是用于执行聚合计算的列。
-# GROUP BY order_num 将被允许。
+# 应修改为 GROUP BY order_num。
 SELECT order_num, COUNT(*) AS items
 FROM OrderItems
 GROUP BY order_num
