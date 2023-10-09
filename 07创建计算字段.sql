@@ -13,7 +13,7 @@ SQL中支持的算术操作符： + - * /
 SELECT vend_name + '(' + vend_country + ')'
 FROM Vendors
 ORDER BY vend_name;
-# 用+完成拼接操作
+# 用||完成拼接操作
 # MySQL不支持
 SELECT vend_name || '(' || vend_country || ')'
 FROM Vendors
