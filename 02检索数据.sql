@@ -14,11 +14,11 @@ FROM Products;
 # LIMIT和OFFSET规定了检索哪些行
 SELECT prod_name 
 FROM Products 
-LIMIT 5 OFFSET 8;
+LIMIT 5 OFFSET 2;
 # 可以简写成如下形式（反过来的）
 SELECT prod_name 
 FROM Products 
-LIMIT 8,5;
+LIMIT 2,5;
 
 /*挑战题*/
 # 1
