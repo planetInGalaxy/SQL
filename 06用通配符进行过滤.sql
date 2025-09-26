@@ -17,7 +17,7 @@ SELECT prod_id, prod_name
 FROM Products
 WHERE prod_name LIKE '%bean bag%';
 # %在中间的情况
-SELECT prod_name
+SELECT prod_id, prod_name
 FROM Products
 WHERE prod_name LIKE 'F%Y';
 # _通配符匹配单个字符
