@@ -19,11 +19,46 @@ EXP() 返回一个数的指数值
 PI() 返回圆周率pi的值
 SQRT() 返回一个数的平方根
 */
-# UPPER函数将文本转换为大写
+# UPPER函数将文本转换为大写,LOWER函数将文本转换为小写
 SELECT vend_name, 
     UPPER(vend_name) AS vend_name_upcase
 FROM Vendors
 ORDER BY vend_name;
+# LENGTH函数计算文本的长度
+SELECT vend_name, 
+    LENGTH(vend_name) AS vend_name_length
+FROM Vendors
+ORDER BY vend_name_length;
+# LEFT函数返回字符串左边的字符 RIGHT函数返回字符串右边的字符
+SELECT vend_name, 
+    LEFT(vend_name, 2) AS vend_name_left
+FROM Vendors
+ORDER BY vend_name_left;
+# Oracle,MySQL中的日期查找函数
+SELECT order_num
+FROM Orders
+WHERE EXTRACT(year FROM order_date) = 2020;
+# MySQL中的YEAR函数，提取年份
+SELECT order_num
+FROM Orders
+WHERE YEAR(order_date) = '2020';
+
+# 用DATEPART查找符合某一条件的日期
+# MySQL不支持
+SELECT order_num
+FROM Orders
+WHERE DATEPART(yy, order_date) = 2020;
+# 也可以用BETWEEN操作符完成上述的日期匹配
+# MySQL，SQL Server不支持to_date
+SELECT order_num
+FROM Orders
+WHERE order_date 
+BETWEEN to_date('2020-01-02', 'yyyy-mm-dd')
+AND to_date('2020-12-31', 'yyyy-mm-dd');
+# SQLite中的小技巧
+SELECT order_num
+FROM Orders
+WHERE strftime('%Y', order_date) = '2020';
 # 不用SOUNDEX函数查找顾客
 SELECT cust_name, cust_contact
 FROM Customers
@@ -32,32 +67,14 @@ WHERE cust_contact = 'Michael Green';
 SELECT cust_name, cust_contact
 FROM Customers
 WHERE SOUNDEX(cust_contact) = SOUNDEX('Michael Green');
-# 用DATEPART查找符合某一条件的日期
-# MySQL不支持
-SELECT order_num
-FROM Orders
-WHERE DATEPART(yy, order_date) = 2020;
-# Oracle,MySQL中的日期查找函数
-SELECT order_num
-FROM Orders
-WHERE EXTRACT(year FROM order_date) = 2020;
-# 也可以用BETWEEN操作符完成上述的日期匹配
-# MySQL，SQL Server不支持to_date
-SELECT order_num
-FROM Orders
-WHERE order_date 
-BETWEEN to_date('2020-01-02', 'yyyy-mm-dd')
-AND to_date('2020-12-31', 'yyyy-mm-dd');
-# MySQL中的YEAR函数，提取年份
-SELECT order_num
-FROM Orders
-WHERE YEAR(order_date) = '2020';
-# SQLite中的小技巧
-SELECT order_num
-FROM Orders
-WHERE strftime('%Y', order_date) = '2020';
+
 /*挑战题*/
 # 1
+-- MySQL
+SELECT cust_id, cust_name,
+        CONCAT(UPPER(LEFT(cust_contact, 2)), 
+        UPPER(LEFT(cust_city, 3))) AS user_login
+FROM customers;
 -- DB2, PostgreSQL
 SELECT cust_id, cust_name,
         UPPER(LEFT(cust_contact, 2)) 
@@ -69,18 +86,13 @@ SELECT cust_id, cust_name,
         || UPPER(SUBSTR(cust_city, 1, 3)) 
         AS user_login
  FROM customers;
--- MySQL
-SELECT cust_id, cust_name,
-        CONCAT(UPPER(LEFT(cust_contact, 2)), 
-        UPPER(LEFT(cust_city, 3))) AS user_login
-FROM customers;
 -- SQL Server
 SELECT cust_id, cust_name,
         UPPER(LEFT(cust_contact, 2)) 
         + UPPER(LEFT(cust_city, 3)) AS user_login
 FROM customers;
 # 2
--- DB2, MariaDB, MySQL
+-- MySQL, DB2, MariaDB
 SELECT order_num, order_date
 FROM Orders
 WHERE YEAR(order_date) = 2020 
