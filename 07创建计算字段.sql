@@ -19,7 +19,7 @@ SELECT vend_name || '(' || vend_country || ')'
 FROM Vendors
 ORDER BY vend_name;
 # 用Concat函数完成拼接操作
-# MySQL支持 
+### MySQL支持 
 SELECT Concat(vend_name, ' (', vend_country, ')')
 FROM Vendors
 ORDER BY vend_name;
@@ -48,9 +48,9 @@ SELECT RTRIM(vend_name) || ' ('
 AS vend_title
 FROM Vendors
 ORDER BY vend_name;
-# MySQL和MariaDB中的语法
-SELECT Concat(RTRIM(vend_name), ' (', 
-    RTRIM(vend_country), ')')
+### MySQL和MariaDB中的语法
+SELECT Concat(LOWER(vend_name), ' (', 
+    UPPER(vend_country), ')')
 AS vend_title
 FROM Vendors
 ORDER BY vend_name;
