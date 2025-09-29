@@ -31,10 +31,7 @@ SELECT MIN(prod_price) AS min_price
 FROM Products;
 # 用SUM函数返回指定列值的和(合计)
 # 忽略值为NULL的行
-SELECT SUM(quantity) AS items_ordered
-FROM OrderItems
-WHERE order_num = 20005;
-# SUM也可以利用标准的算术操作符用来合计计算值
+# 可以利用标准的算术操作符用来合计计算值
 SELECT SUM(item_price*quantity) AS total_price
 FROM OrderItems
 WHERE order_num = 20005;
